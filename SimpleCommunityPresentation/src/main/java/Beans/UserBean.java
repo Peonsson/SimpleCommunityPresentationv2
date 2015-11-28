@@ -1,12 +1,7 @@
 package Beans;
 
-import BusinessLogic.UserHandler;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import java.io.IOException;
 
 /**
  * Created by robin on 9/11/15.
@@ -91,19 +86,19 @@ public class UserBean {
         this.city = city;
     }
 
-    public void register() {
-        boolean registerSuccess = UserHandler.registerUser(email, username, password, firstname, lastname, country, city);
-
-        if (registerSuccess) {
-            try {
-                ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-                ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
-            } catch (IOException e) {
-                System.out.println("failed redirecting");
-                e.printStackTrace();
-            }
-        } else {
-            // TODO: Assign variable if registration failed. (http://stackoverflow.com/questions/15452539/redirecting-form-jsf-managed-bean-and-showing-js-alert-based-on-condition-in-man)
-        }
-    }
+//    public void register() {
+//        boolean registerSuccess = UserHandler.registerUser(email, username, password, firstname, lastname, country, city);
+//
+//        if (registerSuccess) {
+//            try {
+//                ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+//                ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
+//            } catch (IOException e) {
+//                System.out.println("failed redirecting");
+//                e.printStackTrace();
+//            }
+//        } else {
+//            // TODO: Assign variable if registration failed. (http://stackoverflow.com/questions/15452539/redirecting-form-jsf-managed-bean-and-showing-js-alert-based-on-condition-in-man)
+//        }
+//    }
 }
