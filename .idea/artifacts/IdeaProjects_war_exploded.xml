@@ -47,7 +47,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/SimpleCommunityModel/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="IdeaProjects/web/Web" />
+      <element id="javaee-facet-resources" facet="SimpleCommunityModel/web/Web" />
     </root>
   </artifact>
 </component>

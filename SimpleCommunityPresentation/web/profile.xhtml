@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+    <ui:include src="menu.xhtml"></ui:include>
+    <h:outputText value="Profile" style="color: royalblue"/> <br/>
+
+    <h:outputLabel value="Username: "/>
+    <h:outputText value="#{UserProfile.username}"/> <br/>
+
+    <h:outputLabel value="First name: "/>
+    <h:outputText value="#{UserProfile.firstname}"/> <br/>
+
+    <h:outputLabel value="Last name: "/>
+    <h:outputText value="#{UserProfile.lastname}"/> <br/>
+
+    <h:outputLabel value="Country: "/>
+    <h:outputText value="#{UserProfile.country}"/> <br/>
+
+    <h:outputLabel value="City: "/>
+    <h:outputText value="#{UserProfile.city}"/> <br/> <br/>
+
+    <h:form>
+        <p:commandButton value="Add as friend" action="#{AddFriend.addFriend(UserProfile.id)}" />
+    </h:form>
+
+    <h:form>
+        <p:commandButton value="Send PM" action="#{SendPrivateMessage.sendPm}" />
+    </h:form>
+
+    <br/>
+    <h:dataTable value="#{UserProfile.logs}" var="item">
+        <h:column>
+            <f:facet name="header">Subject</f:facet>
+
+            <h:outputText value="#{item.subject}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Message</f:facet>
+            <h:outputText value="#{item.message}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Timestamp</f:facet>
+            <h:outputText value="#{item.timestamp}" />
+        </h:column>
+    </h:dataTable>
+
+</f:view>
+</html>
